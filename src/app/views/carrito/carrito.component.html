@@ -1,0 +1,59 @@
+<!--
+ <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+<div class="cart-container" *ngIf="cartItems.length > 0">
+  <ul class="cart-list">
+    <li class="cart-item" *ngFor="let item of cartItems">
+      <span class="item-name">{{item.producto.nombre}}</span>
+      <span class="item-quantity">{{item.cantidad}} x</span>
+      <span class="item-price">{{item.producto.precio | currency }}</span>
+      <ion-button color="danger" (click)="removeFromCart(item.producto)">Eliminar</ion-button>
+    </li>
+  </ul>
+  <p class="cart-total">Total: {{total | currency }}</p>
+  <button class="cart-buy-button" (click)="buy()">Comprar</button>
+</div>
+<div class="cart-empty" *ngIf="cartItems.length === 0">
+  <p>No hay productos en el carrito</p>
+</div> -->
+
+
+<!-- carrito.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Carrito de Compras</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br>
+
+<ion-content>
+  <div class="cart-container" *ngIf="cartItems.length > 0">
+    <ul class="cart-list">
+      <li class="cart-item" *ngFor="let item of cartItems">
+        <span class="item-name">{{item.producto.nombre}}</span>
+        <span class="item-quantity">{{item.cantidad}} x</span>
+        <span class="item-price">{{item.producto.precioFinal | currency }}</span>
+        <ion-button color="danger" (click)="removeFromCart(item.producto)">Eliminar</ion-button>
+      </li>
+    </ul>
+    <p class="cart-total">Total: {{total | currency }}</p>
+    <form (ngSubmit)="buy()">
+      <ion-item>
+        <ion-label position="floating">Tu Nombre</ion-label>
+        <ion-input [(ngModel)]="from_name" name="from_name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Tu Correo Electrónico</ion-label>
+        <ion-input [(ngModel)]="from_email" name="from_email" type="email" required></ion-input>
+      </ion-item>
+      <ion-button type="submit">Comprar</ion-button>
+    </form>
+  </div>
+  <div class="cart-empty" *ngIf="cartItems.length === 0">
+    <p>No hay productos en el carrito</p>
+  </div>
+</ion-content>

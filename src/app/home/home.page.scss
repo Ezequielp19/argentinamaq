@@ -1,0 +1,483 @@
+.header {
+  position: fixed; /* Fijo en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  z-index: 1000; /* Asegura que esté por encima del resto del contenido */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #c77810; /* Azul de fondo */
+  color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para un efecto flotante */
+
+  .logo img {
+    height: 50px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #ffd700; // Amarillo al pasar el mouse
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .flag {
+      width: 30px;
+      height: auto;
+    }
+
+    .login-btn {
+      background-color: black;
+      color: white;
+      padding: 5px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #333;
+      }
+    }
+
+    ion-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.primary-toolbar {
+  --background: #FFCF00;
+  padding: 0;
+}
+
+.secondary-toolbar {
+  --background: #FFCF00;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  overflow: visible; /* Asegura que el contenido se desborde correctamente */
+  position: relative;
+  z-index: 10; /* Asegura que está encima del contenido */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 3.125rem; /* 50px */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 6.25rem; /* 100px */
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 75rem; /* 900px */
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.welcome-message {
+  margin: 0 0.625rem 0 0; /* 0 10px 0 0 */
+  color: #fff;
+}
+
+.cart-icon {
+  font-size: 1.5rem; /* 24px */
+  cursor: pointer;
+  margin-left: 0.9375rem; /* 15px */
+}
+
+ion-toolbar.secondary-toolbar ion-buttons ion-button {
+  color: #000;
+}
+
+.marcas-section {
+  background-color:#ebebeb;
+  padding: 1.25rem 0; /* 20px 0 */
+}
+
+.marcas-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 0.625rem 0; /* 10px 0 */
+}
+
+.marca-card {
+  background-color: #fff;
+  border-radius: 0.5rem; /* 8px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px */
+  width: 7.5rem; /* 120px */
+  height: 7.5rem; /* 120px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.3125rem; /* 5px */
+}
+
+.marca-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.footer-content {
+  background-color: #c77810;
+  padding: 1.25rem 0; /* 20px 0 */
+}
+
+.dropdown-container {
+  position: absolute;
+  top: 8.125rem; /* 130px */
+  left: 32%; /* Ajusta según sea necesario para alinear con el botón */
+  z-index: 1000; /* Asegura que está sobre otros elementos */
+  display: none;
+  background: white;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15); /* 0 2px 8px */
+  width: 12.5rem; /* 200px */
+}
+
+.dropdown-container.open {
+  display: block;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  top: -0.625rem; /* -10px */
+  left: 60%; /* Centrar horizontalmente */
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.625rem solid transparent; /* 10px */
+  border-right: 0.625rem solid transparent; /* 10px */
+  border-bottom: 0.625rem solid white; /* 10px */
+}
+
+ion-content {
+  position: relative;
+  z-index: 1; /* Debe estar debajo del dropdown */
+}
+
+
+.marcas-section {
+  text-align: center;
+}
+
+.marcas-scroll-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.marcas-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.marcas-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.marcas-carousel-inner {
+  display: flex;
+  flex-direction: row;
+  animation: scrollMarcas 20s linear infinite;
+}
+
+.marca-card {
+  flex: 0 0 auto;
+  margin: 10px;
+}
+
+@keyframes scrollMarcas {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+:host {
+  background-color: #ebebeb;
+}
+
+ion-content {
+  --background: #ebebeb;
+}
+
+
+
+
+
+
+
+.productos-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e; /* Fondo negro */
+  // padding: 20px 0;
+    padding-top: 70px; /* Ajustar este valor para que no quede tapado */
+  padding-bottom: 20px; /* Opcional: margen inferior */
+
+  .productos-btn {
+    background: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+
+    span {
+      color: #ff6600; /* Color naranja */
+    }
+
+    &:hover {
+      background-color: white;
+      color: black;
+
+      span {
+        color: #ff6600;
+      }
+    }
+  }
+}
+
+ion-footer {
+
+  bottom: 0;       /* Ubicación exacta */
+  left: 0;
+  width: 100%;     /* Abarca todo el ancho */
+
+  color: white;    /* Color del texto */
+  text-align: center; /* Centrado del contenido */
+  padding: 10px 0;
+  z-index: 1000;   /* Asegúrate de que esté por encima del contenido */
+
+}
+
+
+.nuestra-empresa {
+  padding: 20px;
+  background-color: #f9f9f9;
+
+  .content-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .image-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+
+      img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .text-container {
+      flex: 2;
+      max-width: 600px;
+
+      h2 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      strong {
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+
+.footer-content {
+  background-color: #c77810;
+  padding: 20px 0;
+  color: white;
+  text-align: center;
+
+  .contact-info {
+    margin-bottom: 15px;
+
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #fff;
+      margin: 5px 0;
+
+      a {
+        color: #ffd700;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  a {
+    color: #ffd700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-menu a {
+    font-size: 14px; /* Reduce el tamaño de la fuente */
+  }
+
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .login-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+
+  .logo img {
+    height: 50px;
+  }
+
+  .search-container {
+    padding-left: 0;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .marcas-scroll-container {
+    flex-direction: column;
+  }
+
+
+ .productos-banner {
+    height: auto; /* Altura automática para adaptarse al contenido */
+    padding: 20px; /* Espacio interno para evitar que el contenido se recorte */
+    background-size: contain; /* Ajusta la imagen para que no se recorte */
+        padding-top: 121px; /* Aumentar espacio adicional para pantallas pequeñas */
+
+  }
+
+  .productos-btn {
+    padding: 10px 20px; /* Reduce el tamaño del padding */
+    font-size: 18px; /* Fuente más pequeña para el texto principal */
+  }
+
+  .productos-btn span {
+    font-size: 20px; /* Fuente más pequeña para "PRODUCTOS" */
+  }
+
+}
+
+
+
+
+
+

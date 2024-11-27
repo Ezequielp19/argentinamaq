@@ -1,0 +1,73 @@
+
+<ion-content *ngIf="productoferta" class="content">
+  <ion-card style="margin-top: 15em;" class="main-card">
+    <div class="product-container">
+      <!-- Imagen del productoferta -->
+      <img [src]="productoferta.imagen" [alt]="productoferta.nombre" class="product-image"/>
+
+      <!-- Información básica del productoferta -->
+      <div class="product-details">
+        <h2 class="product-title"><strong>{{ productoferta.nombre }}</strong></h2>
+        <p *ngIf="productoferta.descuento" class="product-original-price">${{ productoferta.precio | number:'1.2-2' }}</p>
+        <p class="product-price">
+          ${{
+            productoferta.precioFinal | number:'1.2-2'
+          }}
+          <span *ngIf="productoferta.descuento" class="discount-info">{{ productoferta.descuento }}% OFF</span>
+        </p>
+        <ul class="product-info-list">
+          <li><ion-icon name="checkmark-circle-outline"></ion-icon> Código: <strong>{{ productoferta.codigo }}</strong></li>
+          <li><ion-icon name="checkmark-circle-outline"></ion-icon> Categoría: <strong>{{ productoferta.categoria.nombre }}</strong></li>
+          <li><ion-icon name="checkmark-circle-outline"></ion-icon> Marca: <strong>{{ productoferta.marca.nombre }}</strong></li>
+        </ul>
+        <div class="product-payment">
+          <ion-card>
+            <ion-card-content>
+              <h3>Opciones de Pago</h3>
+              <p>Calcula cuándo llega</p>
+              <ion-button expand="full" color="primary" (click)="comprar()">Comprar ahora</ion-button>
+              <ion-button expand="full" color="secondary" (click)="addToCart(productoferta)">Agregar al carrito</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+
+      <!-- Opciones de pago y carrito -->
+
+    </div>
+
+    <!-- Segmento de navegación, ubicado después del contenedor principal -->
+    <ion-segment [(ngModel)]="selectedSegment" color="primary" class="product-segment">
+      <ion-segment-button value="descripcion">
+        <ion-label>Descripción</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="especificaciones">
+        <ion-label>Especificaciones</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="dudas">
+        <ion-label>Dudas Frecuentes</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <!-- Contenido del segmento -->
+    <ion-card-content *ngIf="selectedSegment === 'descripcion'">
+      <p class="product-description"><strong>{{ productoferta.descripcion }}</strong></p>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="selectedSegment === 'especificaciones'">
+      <p>Aquí puedes añadir las especificaciones del productoferta...</p>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="selectedSegment === 'dudas'">
+      <p>Sección de dudas frecuentes...</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-content *ngIf="!productoferta" class="content">
+  <ion-card class="no-product-card">
+    <ion-card-content>
+      <h2>productoferta no encontrado</h2>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

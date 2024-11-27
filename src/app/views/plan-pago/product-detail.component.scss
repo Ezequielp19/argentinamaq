@@ -1,0 +1,164 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding: 16px;
+}
+
+.main-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: none; /* Remover el borde */
+  padding: 20px;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.product-image-and-segment {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Asegúrate de que ocupe el 100% del ancho disponible */
+}
+
+.product-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: scale-down;
+  margin-bottom: 16px;
+}
+
+.product-segment {
+  margin-top: 16px;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho del contenedor */
+}
+
+.segment-content {
+  width: 100%;
+  margin-top: 16px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-details-container {
+  flex: 30%;
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Asegúrate de que ocupe el 100% del ancho disponible */
+}
+
+.product-details {
+  margin-bottom: 16px;
+}
+
+.product-original-price {
+  font-size: 1em;
+  color: black;
+  text-decoration: line-through;
+  margin-bottom: -2px; /* Reduce el margen inferior para estar más pegado al precio final */
+  margin-top: 8px; /* Margen superior para separarlo del contenido superior */
+}
+
+.product-price {
+  font-size: 2.3em;
+  color: black;
+  margin-top: 0; /* Elimina el margen superior para estar más pegado al precio tachado */
+  margin-bottom: 16px; /* Elimina el margen inferior para estar más pegado al contenido inferior */
+  display: flex;
+  align-items: center;
+}
+
+.discount-info {
+  font-size: 0.4em; /* Tamaño menor para el porcentaje de descuento */
+  color: rgb(14, 189, 14);
+  margin-left: 8px; /* Espacio entre el precio y el porcentaje de descuento */
+}
+
+.product-info-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-info-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  color: black;
+}
+
+.product-info-list ion-icon {
+  margin-right: 12px;
+  font-size: 1.2em;
+  color: black; /* Color del ícono */
+}
+
+.product-info-list strong {
+  margin-left: 8px; /* Añade un margen a la izquierda del valor */
+}
+
+.product-payment {
+  flex: 1;
+}
+
+.product-title {
+  font-size: 1.5em;
+  margin: 16px 0;
+  color: black;
+}
+
+.product-description {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+ion-button.buy-now-button {
+  --color: #ffffff; /* Letras blancas */
+  --background-hover: #0a5ba1; /* Color de fondo del botón al hacer hover */
+}
+
+.payment-card {
+  border: 1px solid #ccc; /* Agrega un borde */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+  background-color: #fafafa; /* Color de fondo más claro */
+  margin-top: 20px; /* Separación superior */
+}
+
+ion-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.no-product-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+:host {
+  background-color: #ebebeb;
+}
+
+ion-content {
+  --background: #ebebeb;
+}

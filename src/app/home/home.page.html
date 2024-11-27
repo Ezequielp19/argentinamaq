@@ -1,0 +1,163 @@
+
+
+
+
+<ion-content>
+
+<header class="header">
+  <div class="logo">
+    <img src="../../assets/icon/logooo.png" alt="MACROMAQ Logo" />
+  </div>
+  <nav class="nav-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Marcas</a>
+    <a href="#">Nuestra Empresa</a>
+    <a href="#">Servicio Posventa</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+
+  <div class="actions">
+
+    <button class="login-btn">Iniciar Sesión</button>
+    <ion-icon name="search-outline"></ion-icon>
+  </div>
+</header>
+
+
+  <div style="margin-top: 6.4em;" class="content-wrapper" >
+    <div *ngIf="!isSearching">
+
+
+      <!-- Carousel -->
+     <div class="productos-banner">
+  <button class="productos-btn">
+    CONOCE NUESTROS <span>PRODUCTOS</span>
+  </button>
+</div>
+
+
+
+
+
+        <div class="marcas-section">
+
+    <div class="marcas-scroll-container">
+      <div class="marcas-wrapper">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" class="marcas-carousel">
+              <div class="marcas-carousel-inner">
+                <ion-card class="marca-card" *ngFor="let marca of marcas" >
+                  <img [src]="marca.imagen" alt="{{ marca.nombre }}" />
+                </ion-card>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="nuestra-empresa">
+  <div class="content-container">
+    <div class="image-container">
+      <img src="../../assets/icon/Imagen de WhatsApp 2024-11-20 a las 18.26.43_48baddec.jpg" alt="Edificio Macromaq" />
+    </div>
+    <div class="text-container">
+      <h2>Nuestra Empresa</h2>
+      <p>
+        Macromaq SRL es tu socio confiable en soluciones para la construcción. Somos líderes en la provisión de maquinaria y herramientas para la construcción en Argentina, ofreciendo soluciones integrales y un servicio postventa de excelencia, consolidando nuestra posición en el mercado durante casi 20 años.
+      </p>
+      <p>
+        Satisfacemos las necesidades de nuestros socios comerciales brindándoles las mejores herramientas y maquinaria para la construcción, respaldadas por un servicio postventa de alta calidad y asesoramiento técnico especializado.
+      </p>
+      <p>
+        <strong>Excelencia:</strong> Buscamos la perfección en todo lo que hacemos. <br />
+        <strong>Innovación:</strong> Ofrecemos las últimas tecnologías. <br />
+        <strong>Confianza:</strong> Construimos relaciones basadas en la transparencia. <br />
+        <strong>Servicio:</strong> Un servicio personalizado de alta calidad.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+ <div class="nuestra-empresa">
+  <div class="content-container">
+    <div class="image-container">
+      <img src="../../assets/icon/Imagen de WhatsApp 2024-11-20 a las 18.26.43_48baddec.jpg" alt="Edificio Macromaq" />
+    </div>
+    <div class="text-container">
+      <h2>Servicio Posventa</h2>
+      <p>
+En Macromaq SRL, nuestro servicio posventa garantiza un rápido diagnóstico de fallas, reposición de repuestos y asistencia técnica personalizada para que su maquinaria siempre funcione al máximo.       </p>
+      <p>
+Nuestro equipo de técnicos altamente capacitados cuenta con años de experiencia en el sector,      </p>
+      <p>
+        <strong>Excelencia:</strong> Buscamos la perfección en todo lo que hacemos. <br />
+        <strong>Innovación:</strong> Ofrecemos las últimas tecnologías. <br />
+        <strong>Confianza:</strong> Construimos relaciones basadas en la transparencia. <br />
+        <strong>Servicio:</strong> Un servicio personalizado de alta calidad.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+<ion-footer>
+  <div class="footer-content text-center">
+    <div class="contact-info">
+      <h2>Casa Central</h2>
+      <p>Ex Camino a Pajas Blancas esq. Costa Canal Sur - 5019</p>
+      <p>Teléfono: <a href="tel:+543513575814">3513575814</a></p>
+      <p>Email: <a href="mailto:macromaq@macromaq.com.ar">macromaqmacromaq.com.ar</a></p>
+      <p>Horario: Lunes a Viernes de 9:00 a 17:00</p>
+    </div>
+    <p>&copy; 2024 Derechos Reservados | Desarrollado por
+      <a href="https://www.ateneasoftware.net" target="_blank">Ateneasoftware.net</a>
+    </p>
+    <img src="./assets/iconoAtenea.webp" alt="Icono de la empresa" style="width: 150px;">
+  </div>
+</ion-footer>
+
+
+  </ion-content>
+
+  <!-- Botón flotante de WhatsApp -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="openWhatsApp()">
+      <ion-icon name="logo-whatsapp" color="light"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- Botón flotante de carrito de compras -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-bottom: 80px;">
+    <ion-fab-button color="primary" (click)="goToCart()">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+

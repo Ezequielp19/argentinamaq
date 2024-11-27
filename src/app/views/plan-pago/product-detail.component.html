@@ -1,0 +1,68 @@
+<ion-content *ngIf="producto" class="content">
+  <ion-card style="margin-top: 15em;" class="main-card">
+    <div class="product-container">
+      <!-- Contenedor de la imagen, el segmento y el contenido del segmento -->
+      <div class="product-image-and-segment">
+        <!-- Imagen del producto -->
+        <div class="product-image-container">
+          <img [src]="producto.imagen" [alt]="producto.nombre" class="product-image"/>
+        </div>
+
+        <!-- Segmento de navegación debajo de la imagen -->
+        <ion-segment [(ngModel)]="selectedSegment" color="primary" class="product-segment">
+          <ion-segment-button value="descripcion">
+            <ion-label>Descripción</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="especificaciones">
+            <ion-label>Especificaciones</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="dudas">
+            <ion-label>Dudas Frecuentes</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+        <!-- Contenido del segmento -->
+        <ion-card-content *ngIf="selectedSegment === 'descripcion'" class="segment-content">
+          <p class="product-description"><strong>{{ producto.descripcion }}</strong></p>
+        </ion-card-content>
+
+        <ion-card-content *ngIf="selectedSegment === 'especificaciones'" class="segment-content">
+          <p>Aquí puedes añadir las especificaciones del producto...</p>
+        </ion-card-content>
+
+        <ion-card-content *ngIf="selectedSegment === 'dudas'" class="segment-content">
+          <p>Sección de dudas frecuentes...</p>
+        </ion-card-content>
+      </div>
+
+      <!-- Información básica del producto -->
+      <div class="product-details-container">
+        <div class="product-details">
+          <h2 class="product-title"><strong>{{ producto.nombre }}</strong></h2>
+          <p *ngIf="producto.descuento" class="product-original-price">${{ producto.precio | number:'1.2-2' }}</p>
+          <p class="product-price">
+            ${{ producto.precioFinal | number:'1.2-2' }}
+            <span *ngIf="producto.descuento" class="discount-info">{{ producto.descuento }}% OFF</span>
+          </p>
+          <ul class="product-info-list">
+            <li><ion-icon name="checkmark-circle-outline"></ion-icon> Código: <strong>{{ producto.codigo }}</strong></li>
+            <li><ion-icon name="checkmark-circle-outline"></ion-icon> Categoría: <strong>{{ producto.categoria.nombre }}</strong></li>
+            <li><ion-icon name="checkmark-circle-outline"></ion-icon> Marca: <strong>{{ producto.marca.nombre }}</strong></li>
+          </ul>
+        </div>
+
+        <!-- Opciones de pago y carrito -->
+        <div class="product-payment">
+          <ion-card class="payment-card">
+            <ion-card-content>
+              <h3>Opciones de Pago</h3>
+              <p>Calcula cuándo llega</p>
+              <ion-button expand="full" color="primary" class="buy-now-button" (click)="comprar()">Comprar ahora</ion-button>
+              <ion-button expand="full" color="secondary" (click)="addToCart(producto)">Agregar al carrito</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>
