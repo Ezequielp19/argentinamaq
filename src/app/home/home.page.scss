@@ -481,3 +481,43 @@ ion-footer {
 
 
 
+ /* Aumenta el tamaño del botón */
+  .large-button {
+    --ion-size: 80px; /* Cambiar el tamaño del botón */
+    --icon-size: 40px; /* Ajusta el tamaño del icono */
+  }
+
+  /* Asegura que el botón siempre siga el scroll */
+  .whatsapp-fab {
+    position: fixed !important; /* Fijo en la pantalla */
+    bottom: 50px; /* Margen inferior */
+    right: 20px; /* Margen derecho */
+    z-index: 9999; /* Superponer al contenido */
+  }
+
+
+ .whatsapp-button-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .whatsapp-button {
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .whatsapp-button ion-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #1ebe57; /* Color más oscuro al pasar el mouse */
+  }

@@ -10,18 +10,14 @@
   </div>
   <nav class="nav-menu">
     <a href="#">Inicio</a>
-    <a href="#">Marcas</a>
     <a href="#">Nuestra Empresa</a>
-    <a href="#">Servicio Posventa</a>
+    <a href="#">Servicio y reparación</a>
+    <a href="#">Catalogo</a>
     <a href="#">Contacto</a>
   </nav>
 
 
-  <div class="actions">
 
-    <button class="login-btn">Iniciar Sesión</button>
-    <ion-icon name="search-outline"></ion-icon>
-  </div>
 </header>
 
 
@@ -32,7 +28,7 @@
       <!-- Carousel -->
      <div class="productos-banner">
   <button class="productos-btn">
-    CONOCE NUESTROS <span>PRODUCTOS</span>
+    CATALOGO <span>MAQUINARIAS</span>
   </button>
 </div>
 
@@ -96,7 +92,7 @@
       <img src="../../assets/icon/Imagen de WhatsApp 2024-11-20 a las 18.26.43_48baddec.jpg" alt="Edificio Macromaq" />
     </div>
     <div class="text-container">
-      <h2>Servicio Posventa</h2>
+      <h2>Servicio Y reparación</h2>
       <p>
 En Macromaq SRL, nuestro servicio posventa garantiza un rápido diagnóstico de fallas, reposición de repuestos y asistencia técnica personalizada para que su maquinaria siempre funcione al máximo.       </p>
       <p>
@@ -107,6 +103,12 @@ Nuestro equipo de técnicos altamente capacitados cuenta con años de experienci
         <strong>Confianza:</strong> Construimos relaciones basadas en la transparencia. <br />
         <strong>Servicio:</strong> Un servicio personalizado de alta calidad.
       </p>
+        <!-- Botón de WhatsApp dentro del contenido -->
+      <div class="whatsapp-button-container">
+        <button class="whatsapp-button" onclick="openWhatsApp()">
+          <ion-icon name="logo-whatsapp"></ion-icon> Contáctanos por WhatsApp
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -145,19 +147,13 @@ Nuestro equipo de técnicos altamente capacitados cuenta con años de experienci
 
   </ion-content>
 
-  <!-- Botón flotante de WhatsApp -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="success" (click)="openWhatsApp()">
-      <ion-icon name="logo-whatsapp" color="light"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<!-- Botón flotante de WhatsApp -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" class="whatsapp-fab">
+  <ion-fab-button color="success" (click)="openWhatsApp()" class="large-button">
+    <ion-icon name="logo-whatsapp" color="light"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
-  <!-- Botón flotante de carrito de compras -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-bottom: 80px;">
-    <ion-fab-button color="primary" (click)="goToCart()">
-      <ion-icon name="cart"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
 
 
