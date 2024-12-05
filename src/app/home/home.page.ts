@@ -51,6 +51,7 @@ import { Marca } from '../common/models/marca.model';
 import { Productoferta } from '../common/models/productofree.model';
 import { Categoria } from 'src/app/common/models/categoria.model';
 
+
 type DropdownSegment = 'categoria' | 'marcas' | 'productos' | 'perfil';
 
 @Component({
@@ -142,7 +143,9 @@ export class HomePage implements OnInit {
 
   }
 
-
+navegarAmaq() {
+    this.router.navigate(['/MAQUINARIAS']);
+  }
 
 
   async loadCategories() {

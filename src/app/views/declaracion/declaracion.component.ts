@@ -10,6 +10,9 @@ import * as bcrypt from 'bcryptjs';
 import { Auth } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
 
+import { Productoferta } from '../../common/models/productofree.model'; // Importa el modelo de Productoferta
+
+
 
 
 @Component({
@@ -29,29 +32,54 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class DeclaracionComponent  implements OnInit {
+ ofertas: Productoferta[] = [];
+  categoriaSeleccionada: string = '';
+  categorias: any[] = [];  // Aquí cargarás las categorías si es necesario
+  productosSeleccionados: Productoferta[] = []; // Array de productos seleccionados para comparar
+  currentPage: number = 1;
+  pageSize: number = 8;
 
-  userId: string;
-  jurada: any;
-  pdfs: any[];
-
-
-  constructor(private firestoreService: FirestoreService) {}
+   constructor(
+    private firestoreService: FirestoreService,
+    private router: Router
+  ) {}
 
   async ngOnInit() {
-    this.userId = localStorage.getItem('userId');
-    if (this.userId) {
-      this.jurada = await this.firestoreService.getAfip(this.userId);
-      this.pdfs = await this.firestoreService.getDeclaracionJuradaPDFs(this.userId);
-      console.log('PDFs de Declaración Jurada obtenidos:', this.pdfs);
-    } else {
-      console.error('No se encontró userId en localStorage');
+    this.cargarOfertas();
+    // Cargar categorías si es necesario
+    // this.categorias = await this.firestoreService.getCategorias();
+  }
+
+  async cargarOfertas() {
+    this.ofertas = await this.firestoreService.getProductofertas();
+    console.log('ofertas', this.ofertas);
+  }
+
+  getProductosPaginados(): Productoferta[] {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    return this.ofertas.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  goToPreviousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
     }
   }
 
-  verPdf(url: string) {
-  window.open(url, '_blank');
-}
+  goToNextPage() {
+    const totalPages = Math.ceil(this.ofertas.length / this.pageSize);
+    if (this.currentPage < totalPages) {
+      this.currentPage++;
+    }
+  }
 
+  
 
+  compareProduct(oferta: Productoferta) {
+    // Lógica para agregar a comparación
+    if (!this.productosSeleccionados.some(p => p.id === oferta.id)) {
+      this.productosSeleccionados.push(oferta);
+    }
+  }
 
 }

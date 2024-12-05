@@ -120,14 +120,9 @@ async getCategoriaById(id: string): Promise<Categoria | undefined> {
         id: doc.id,
         nombre: data['nombre'],
         descripcion: data['descripcion'],
-        precio: data['precio'],
-        precioFinal: data['precioFinal'] || null,
-        codigo: data['codigo'],
-        etiqueta: data['etiqueta'],
-        categoria: data['categoria'],
-        marca: data['marca'],
+
         imagen: data['imagen'] || null,
-        envio:data['envio']
+        
       } as Producto;
     });
   }
@@ -139,7 +134,6 @@ async getCategoriaById(id: string): Promise<Categoria | undefined> {
   }
 
 
-  // Obtener productos por ID de categoría
  async getProductosByCategoria(categoriaId: string): Promise<Producto[]> {
   const productosSnapshot = await getDocs(
     query(collection(this.firestore, 'productos'), where('categoria.id', '==', categoriaId))
@@ -172,6 +166,23 @@ async getProductosOfertaByMarca(marcaId: string): Promise<Productoferta[]> {
   );
   return productosSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Productoferta[];
 }
+
+
+//  async getProductofertas(): Promise<Productoferta[]> {
+//   const ofertasSnapshot = await getDocs(
+//     query(collection(this.firestore, 'productofertas'), orderBy('nombre'))
+//   );
+//   return ofertasSnapshot.docs.map((doc) => {
+//     const data = doc.data();
+//     return {
+//       id: doc.id,
+//       nombre: data['nombre'],
+//       descripcion: data['descripcion'],
+
+//       imagen: data['imagen'] || null,
+//     } as Productoferta;
+//   });
+// }
 
 
 
@@ -408,15 +419,9 @@ async getProductosOfertaByMarca(marcaId: string): Promise<Productoferta[]> {
       id: doc.id,
       nombre: data['nombre'],
       descripcion: data['descripcion'],
-      precio: data['precio'],
-      descuento: data['descuento'] || null,
-      precioFinal: data['precioFinal'] || null,
-      codigo: data['codigo'],
-      etiqueta: data['etiqueta'],
-      categoria: data['categoria'],
-      marca: data['marca'],
+
       imagen: data['imagen'] || null,
-      envio:data['envio']
+
     } as Productoferta;
   });
 }

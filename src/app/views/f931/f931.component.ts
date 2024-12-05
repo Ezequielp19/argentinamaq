@@ -21,6 +21,8 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonCardContent,
+  IonSelect,
+  IonSelectOption,
   IonBadge,
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
@@ -33,7 +35,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, IonicModule } from '@ionic/angular';
+
 import * as bcrypt from 'bcryptjs';
 import { Auth } from '@angular/fire/auth';
 import { CommonModule } from '@angular/common';
@@ -49,6 +51,8 @@ import { CartService } from 'src/app/common/services/cart.service';
   imports: [
     IonGrid,
     IonBackButton,
+    IonSelect,
+    IonSelectOption,
     IonRow,
     IonCol,
     IonImg,
@@ -84,17 +88,31 @@ export class F931Component implements OnInit {
   f931: any;
   pdfs: any[];
 
+    productosSeleccionados: Producto[] = []; // Aquí almacenaremos los productos seleccionados para comparar.
+  maxComparar: number = 3;
+
   productos: Producto[] = [];
 
   constructor(
     private firestoreService: FirestoreService,
     private cartService: CartService,
     private router: Router,
-    private alertController: AlertController
   ) {}
 
   async ngOnInit() {
     this.cargarProductos();
+
+
+   // Cargar las categorías al inicio
+    this.categorias = await this.firestoreService.getCategorias();
+
+    // Cargar los productos de la categoría seleccionada, o todos los productos si no hay categoría seleccionada
+    if (this.categoriaSeleccionada) {
+      await this.cargarProductosPorCategoria(this.categoriaSeleccionada);
+    } else {
+      await this.cargarProductos(); // Cargar todos los productos
+    }
+
   }
 
   verPdf(url: string) {
@@ -103,6 +121,7 @@ export class F931Component implements OnInit {
 
   async cargarProductos() {
     this.productos = await this.firestoreService.getProductos();
+    console.log('productos', this.productos )
     this.paginatedProductos = this.getProductosPaginados();
 
   }
@@ -111,9 +130,15 @@ export class F931Component implements OnInit {
   currentPage: number = 1;
   pageSize: number = 8;
 
+  // getProductosPaginados(): Producto[] {
+  //   const startIndex = (this.currentPage - 1) * this.pageSize;
+  //   return this.productos.slice(startIndex, startIndex + this.pageSize);
+  // }
+
   getProductosPaginados(): Producto[] {
+    const productosAMostrar = this.categoriaSeleccionada ? this.productosPorCategoria : this.productos;
     const startIndex = (this.currentPage - 1) * this.pageSize;
-    return this.productos.slice(startIndex, startIndex + this.pageSize);
+    return productosAMostrar.slice(startIndex, startIndex + this.pageSize);
   }
 
   goToPreviousPage() {
@@ -137,37 +162,63 @@ navigateToDetail(product:Producto){
 
 selectedProduct: any;
 
-// Método para mostrar los detalles del producto al pasar el mouse
   showDetails(product: any) {
     this.selectedProduct = product;
   }
 
-  // Método para ocultar los detalles del producto al quitar el mouse
   hideDetails() {
     this.selectedProduct = null;
   }
 
 
-  //  addToCart(product: Producto) {
-  //   this.cartService.addToCart(product);
-  // }
 
-  async addToCart(product: Producto) {
-    this.cartService.addToCart(product);
-    await this.showAlert(product.nombre);
+
+
+
+compareProduct(product: Producto) {
+  // Verificar si el producto ya ha sido agregado
+  const productExists = this.productosSeleccionados.some(p => p.id === product.id);
+
+  if (!productExists) {
+    // Si no ha sido agregado, lo agregamos al array de comparación
+    if (this.productosSeleccionados.length < this.maxComparar) {
+      this.productosSeleccionados.push(product);
+    } else {
+      // Mostrar alerta si se ha alcanzado el límite de productos para comparar
+    }
+  } else {
+  }
+}
+
+
+productosPorCategoria: Producto[] = []; // Productos filtrados por categoría
+
+  categorias: any[] = []; // Lista de categorías para el filtro
+
+  categoriaSeleccionada: string = ''; // Almacena la categoría seleccionada
+
+
+ // Aquí obtienes el nombre de la categoría seleccionada
+  getCategoriaNombre(categoriaId: string): string {
+    const categoria = this.categorias.find(c => c.id === categoriaId);
+    return categoria ? categoria.nombre : 'Categoría no seleccionada';
   }
 
-  async showAlert(productName: string) {
-    const alert = await this.alertController.create({
-      header: 'Producto Agregado',
-      message: `${productName} ha sido agregado al carrito.`,
-      buttons: ['OK'],
-    });
-
-    await alert.present();
+  // Función para cargar productos por categoría
+  async cargarProductosPorCategoria(categoriaId: string) {
+    this.productosPorCategoria = await this.firestoreService.getProductosByCategoria(categoriaId);
+    console.log('productos por categoria', this.productosPorCategoria);
+    this.paginatedProductos = this.getProductosPaginados();
   }
 
-  goToCart() {
-    this.router.navigate(['/carrito']);
+  // Función para manejar el cambio de categoría
+  onCategoriaChange(event: any) {
+    this.categoriaSeleccionada = event.target.value;
+    if (this.categoriaSeleccionada) {
+      this.cargarProductosPorCategoria(this.categoriaSeleccionada);
+    } else {
+      this.cargarProductos(); // Si no hay categoría seleccionada, cargar todos los productos
+    }
   }
+
 }

@@ -11,7 +11,7 @@ export const routes: Routes = [
     loadComponent: () => import('../app/views/login/login.component').then((m) => m.LoginComponent),
   },
     {
-    path: 'carrito',
+    path: 'CATALOGO',
     loadComponent: () => import('../app/views/carrito/carrito.component').then((m) => m.CarritoComponent),
   },
   {
@@ -31,12 +31,12 @@ export const routes: Routes = [
     loadComponent: () => import('../app/views/afip/afip.component').then((m) => m.AfipComponent),
   },
  {
-    path: 'declaracion',
+    path: 'DISCOS',
     loadComponent: () => import('../app/views/declaracion/declaracion.component').then((m) => m.DeclaracionComponent),
   },
 
    {
-    path: 'F931',
+    path: 'MAQUINARIAS',
     loadComponent: () => import('../app/views/f931/f931.component').then((m) => m.F931Component),
   },
 

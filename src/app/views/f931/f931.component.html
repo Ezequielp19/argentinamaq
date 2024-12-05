@@ -1,44 +1,94 @@
+<ion-header class="header">
+  <div class="logo">
+    <img src="../../assets/icon/logooo.png" alt="MACROMAQ Logo" />
+  </div>
+  <nav class="nav-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Nuestra Empresa</a>
+    <a href="#">Servicio y reparación</a>
+    <a href="#">Catalogo</a>
+    <a href="#">Contacto</a>
+  </nav>
 
 
-<ion-header style="margin-top: 10em;">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center" style="color: white;">Productos</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="goToCart()">
-        <ion-icon name="cart-outline" style="color: white;  width: 40px; height: 40px; "></ion-icon>
-      </ion-button>
 
-    </ion-buttons>
-  </ion-toolbar>
 </ion-header>
 
 
+
 <ion-content class="ion-padding">
-  <!-- Productos -->
+
+  <!-- Filtro por categoría -->
+  <div class="categoria-filter" style="padding: 10px;">
+    <ion-select [(ngModel)]="categoriaSeleccionada" (ionChange)="onCategoriaChange($event)">
+      <ion-select-option value=""  >Seleccionar Maquinaria</ion-select-option>
+      <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{ categoria.nombre }}
+      </ion-select-option>
+    </ion-select>
+  </div>
+
+
+   <!-- Mostrar la categoría seleccionada -->
+  <div class="categoria-titulo" *ngIf="categoriaSeleccionada">
+    <h4 style="text-align: center;">Tipo de Maquinaria {{ getCategoriaNombre(categoriaSeleccionada) }}</h4>
+  </div>
+
+
 
 <ion-grid>
   <ion-row>
-    <ion-col size="12" size-md="6" size-lg="3" *ngFor="let product of getProductosPaginados() ">
-      <ion-card>
-        <img [src]="product.imagen" [alt]="product.nombre" />
+    <ion-col size="12" size-md="6" size-lg="3" *ngFor="let product of getProductosPaginados()">
+      <ion-card class="product-card">
+        <div class="image-container">
+          <img [src]="product.imagen" [alt]="product.nombre" />
+          <img class="product-logo" src="../../../assets/icon/logooo.png" alt="logo" />
+        </div>
 
         <ion-card-content>
           <h2>{{ product.nombre }}</h2>
+          <p>{{ product.descripcion }}</p>
 
-          <p>Precio Final: ${{ product.precioFinal }}</p>
+          <ion-button expand="full" color="primary" >Whatsapp</ion-button>
+          <ion-button expand="full" color="primary" (click)="compareProduct(product)">Comparar</ion-button>
 
 
-
-           <ion-button expand="full" color="primary" (click)="addToCart(product)">Agregar 🛒</ion-button>
-            <ion-button expand="full" color="primary" (click)="navigateToDetail(product)">Detalles</ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>
   </ion-row>
 </ion-grid>
+
+
+
+
+
+  <ion-card *ngIf="productosSeleccionados.length > 0">
+    <ion-card-header>
+      <ion-card-title>Productos Comparados</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let product of productosSeleccionados">
+            <ion-card>
+             <div class="image-container">
+              <img [src]="product.imagen" [alt]="product.nombre" />
+              </div>
+              <ion-card-content>
+                <h2>{{ product.nombre }}</h2>
+                <p>{{ product.descripcion }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
 
 <div class="pagination-buttons" style="display: flex; justify-content: center; align-items: center;">
     <ion-button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Anterior</ion-button>

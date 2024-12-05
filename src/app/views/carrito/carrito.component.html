@@ -1,59 +1,49 @@
-<!--
- <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-<div class="cart-container" *ngIf="cartItems.length > 0">
-  <ul class="cart-list">
-    <li class="cart-item" *ngFor="let item of cartItems">
-      <span class="item-name">{{item.producto.nombre}}</span>
-      <span class="item-quantity">{{item.cantidad}} x</span>
-      <span class="item-price">{{item.producto.precio | currency }}</span>
-      <ion-button color="danger" (click)="removeFromCart(item.producto)">Eliminar</ion-button>
-    </li>
-  </ul>
-  <p class="cart-total">Total: {{total | currency }}</p>
-  <button class="cart-buy-button" (click)="buy()">Comprar</button>
-</div>
-<div class="cart-empty" *ngIf="cartItems.length === 0">
-  <p>No hay productos en el carrito</p>
-</div> -->
+<header class="header">
+  <div class="logo">
+    <img src="../../assets/icon/logooo.png" alt="MACROMAQ Logo" />
+  </div>
+  <nav class="nav-menu">
+    <a href="#">Inicio</a>
+    
+  </nav>
 
 
-<!-- carrito.component.html -->
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">Carrito de Compras</ion-title>
-  </ion-toolbar>
-</ion-header>
+
+</header>
+
 <br>
 
 <ion-content>
-  <div class="cart-container" *ngIf="cartItems.length > 0">
-    <ul class="cart-list">
-      <li class="cart-item" *ngFor="let item of cartItems">
-        <span class="item-name">{{item.producto.nombre}}</span>
-        <span class="item-quantity">{{item.cantidad}} x</span>
-        <span class="item-price">{{item.producto.precioFinal | currency }}</span>
-        <ion-button color="danger" (click)="removeFromCart(item.producto)">Eliminar</ion-button>
-      </li>
-    </ul>
-    <p class="cart-total">Total: {{total | currency }}</p>
-    <form (ngSubmit)="buy()">
-      <ion-item>
-        <ion-label position="floating">Tu Nombre</ion-label>
-        <ion-input [(ngModel)]="from_name" name="from_name" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Tu Correo Electrónico</ion-label>
-        <ion-input [(ngModel)]="from_email" name="from_email" type="email" required></ion-input>
-      </ion-item>
-      <ion-button type="submit">Comprar</ion-button>
-    </form>
-  </div>
-  <div class="cart-empty" *ngIf="cartItems.length === 0">
-    <p>No hay productos en el carrito</p>
-  </div>
+
+  <!-- Tarjetas para elegir -->
+  <ion-grid>
+    <ion-row>
+      <!-- Card para ir a Maquinarias -->
+      <ion-col size="12" size-md="6">
+        <ion-card class="catalogo-card" button (click)="navigateToMaquinarias()">
+          <ion-card-header>
+            <ion-card-title>Ir a Maquinarias</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="construct" size="large" class="catalogo-icon"></ion-icon>
+            <p>Haz clic para ver las maquinarias disponibles</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card para ir a Discos -->
+      <ion-col size="12" size-md="6">
+        <ion-card class="catalogo-card" button (click)="navigateToDiscos()">
+          <ion-card-header>
+            <ion-card-title>Ir a Discos de corte</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="disc" size="large" class="catalogo-icon"></ion-icon>
+            <p>Haz clic para ver los discos disponibles</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

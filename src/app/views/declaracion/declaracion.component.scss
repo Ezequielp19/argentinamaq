@@ -1,66 +1,151 @@
 ion-content {
-  --background: hsla(24, 100%, 1%, 0.966); /* Color de fondo gris claro */
+  --background: #f2f4f7; /* Color de fondo gris claro */
 }
 
-.plan-pago-card {
-  margin: 20px auto;
-  width: 90%;
-  max-width: 500px;
-}
-
-.plan-pago-card-header {
-  background-color: #CFB53B;
-  color: white;
-}
-
-.plan-pago-card-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #ffffff; /* Aseguramos que el texto sea completamente blanco */
-}
-
-.plan-pago-card-content {
-  padding: 20px;
-}
-
-.pdf-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #CFB53B;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  text-align: center;
-  width: 100%; /* Ensure the link button takes full width */
-}
-
-.pdf-link:hover {
-  background-color: darken(#CFB53B, 10%);
-}
-
-.no-pdfs-card {
-  background-color: #f8d7da; /* Fondo rojo claro para el mensaje de no hay PDFs */
-  color: #721c24;             /* Color de texto rojo oscuro */
-}
-
-ion-grid {
-  height: 100%;
-}
-
-ion-col {
+.product-card {
+  position: relative;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 576px) {
-  .plan-pago-card {
-    height: auto;
-    width: 100%;
+.product-card .image-container {
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.product-card .product-logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+}
+
+.product-card ion-card-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.product-card h2 {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.product-card p {
+  font-size: 0.875rem;
+  margin: 2px 0;
+}
+
+.product-card ion-button {
+  font-size: 0.875rem;
+  padding: 6px 12px;
+}
+
+.product-card .product-card:hover {
+  transform: scale(1.05);
+}
+
+ion-title {
+  color: white; /* Color blanco para el título */
+}
+
+ion-button {
+  --color: white; /* Color blanco para el texto del botón */
+}
+
+ion-icon {
+  color: white; /* Color blanco para los iconos */
+}
+
+.pagination-buttons ion-button {
+  --color: var(--ion-color-primary);
+  --background: white; /* Fondo blanco para los botones de paginación */
+  color: var(--ion-color-primary); /* Texto del color principal */
+}
+
+ion-card ion-button {
+  --background: white; /* Fondo blanco para los botones de la tarjeta */
+  // --color: var(--ion-color-primary);
+}
+
+ion-icon {
+  color: white;
+  font-size: 24px; /* Ajusta el tamaño del ícono según sea necesario */
+}
+
+.header {
+  // position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  z-index: 1000; /* Asegura que esté por encima del resto del contenido */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #c77810; /* Azul de fondo */
+  color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para un efecto flotante */
+
+  .logo img {
+    height: 50px;
   }
-  .pdf-link {
-    padding: 5px 10px;
+
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #ffd700; // Amarillo al pasar el mouse
+      }
+    }
   }
+}
+
+/* Estilos del modal */
+ion-modal {
+  --width: 90%; /* Ajuste del ancho del modal */
+  --height: 80%; /* Ajuste de la altura del modal */
+}
+
+/* Estilos de los productos comparados dentro del modal */
+ion-card {
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.categoria-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;  /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+ion-select {
+  width: 70%; /* Ajusta este valor según el tamaño deseado */
 }

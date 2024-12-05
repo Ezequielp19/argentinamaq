@@ -1,36 +1,78 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">Declaraciones Juradas</ion-title>
-  </ion-toolbar>
+<ion-header class="header">
+  <div class="logo">
+    <img src="../../assets/icon/logooo.png" alt="MACROMAQ Logo" />
+  </div>
+  <nav class="nav-menu">
+    <a href="#">Inicio</a>
+    <a href="#">Nuestra Empresa</a>
+    <a href="#">Servicio y reparación</a>
+    <a href="#">Catalogo</a>
+    <a href="#">Contacto</a>
+  </nav>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-grid fixed>
-    <ion-row *ngIf="pdfs?.length">
-      <ion-col size="12" size-md="6" *ngFor="let pdf of pdfs">
-        <ion-card class="plan-pago-card">
-          <ion-card-header class="plan-pago-card-header">
-            <ion-card-title class="plan-pago-card-title ion-text-center">PDF de declaracion Jurada</ion-card-title>
-          </ion-card-header>
-          <ion-card-content class="plan-pago-card-content ion-text-center">
-            <a [href]="pdf.pdf" target="_blank" class="pdf-link">Ver PDF</a>
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="3" *ngFor="let oferta of getProductosPaginados()">
+        <ion-card class="product-card">
+          <div class="image-container">
+            <img [src]="oferta.imagen" [alt]="oferta.nombre" />
+            <img class="product-logo" src="../../../assets/icon/logooo.png" alt="logo" />
+          </div>
+
+          <ion-card-content>
+            <h2>{{ oferta.nombre }}</h2>
+            <p>{{ oferta.descripcion }}</p>
+
+            <ion-button expand="full" color="primary" >Whatsapp</ion-button>
+            <ion-button expand="full" color="primary" (click)="compareProduct(oferta)">Comparar</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
-
-    <ion-card *ngIf="!pdfs?.length" class="no-pdfs-card">
-      <ion-card-content>
-        <p>No hay PDFs de Declaraciones Juradas disponibles.</p>
-      </ion-card-content>
-    </ion-card>
-
-    <div *ngIf="!pdfs" class="ion-text-center ion-padding">
-      <ion-spinner name="crescent"></ion-spinner>
-      <p>Cargando Declaraciones Juradas...</p>
-    </div>
   </ion-grid>
+
+  <!-- Mostrar productos comparados -->
+  <ion-card *ngIf="productosSeleccionados.length > 0">
+    <ion-card-header>
+      <ion-card-title>Productos Comparados</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let oferta of productosSeleccionados">
+            <ion-card>
+              <div class="image-container">
+                <img [src]="oferta.imagen" [alt]="oferta.nombre" />
+              </div>
+              <ion-card-content>
+                <h2>{{ oferta.nombre }}</h2>
+                <p>{{ oferta.descripcion }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Paginación -->
+  <div class="pagination-buttons" style="display: flex; justify-content: center; align-items: center;">
+    <ion-button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Anterior</ion-button>
+    <ion-button (click)="goToNextPage()" [disabled]="currentPage * pageSize >= ofertas.length">Siguiente</ion-button>
+  </div>
+
+  <div *ngIf="!ofertas" class="ion-text-center ion-padding">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando Ofertas...</p>
+  </div>
+
 </ion-content>
+
+
+
+
