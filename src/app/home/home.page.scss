@@ -461,7 +461,7 @@ ion-footer {
     height: auto; /* Altura automática para adaptarse al contenido */
     padding: 20px; /* Espacio interno para evitar que el contenido se recorte */
     background-size: contain; /* Ajusta la imagen para que no se recorte */
-        padding-top: 121px; /* Aumentar espacio adicional para pantallas pequeñas */
+        padding-top: 33px; /* Aumentar espacio adicional para pantallas pequeñas */
 
   }
 
@@ -521,3 +521,17 @@ ion-footer {
   .whatsapp-button:hover {
     background-color: #1ebe57; /* Color más oscuro al pasar el mouse */
   }
+
+
+
+  .banner {
+    width: 100%;
+    height: auto;
+  }
+  
+  .banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
