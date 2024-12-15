@@ -6,13 +6,13 @@
 
 <header class="header">
   <div class="logo">
-    <img src="../../assets/icon/logo grupoargentimaq.png" alt="MACROMAQ Logo" />
+    <img src="../../assets/icon/logofondo-removebg-preview.png" alt="MACROMAQ Logo" />
     <!-- <img src="../../assets/icon/logoremove.png" alt="MACROMAQ Logo" /> -->
   </div>
   <nav class="nav-menu">
     <a href="#">Inicio</a>
-    <a href="#">Nuestra Empresa</a>
-    <a href="#">Servicio y reparación</a>
+       <a href="#" (click)="scrollTo('nuestra-empresa')">Nuestra Empresa</a>
+  <a href="#" (click)="scrollTo('servicio-reparacion')">Servicio y Reparación</a>
     <a href="/CATALOGO">Catalogo</a>
     <a href="#">Contacto</a>
   </nav>
@@ -33,14 +33,14 @@
 
 <!-- ----banner aca  -->
 <div class="banner">
-  <img src="../../assets/icon/banner pagina.png" alt="Banner principal" class="banner-image" />
+  <img src="../../assets/icon/banner oficial.jpg" alt="Banner principal" class="banner-image" />
 </div>
 
 
 
 
 
-      
+
      <div class="productos-banner">
   <button class="productos-btn" (click)="navegarAmaq()">
     CATALOGO <span>MAQUINARIAS</span>
@@ -73,61 +73,45 @@
 
 
 
-  <div class="nuestra-empresa">
-    <div class="content-container">
-      <div class="image-container">
-        <img src="../../assets/icon/FOTO EMPRESA.png" alt="Edificio Macromaq" />
-      </div>
-      <div class="text-container">
-        <h2>Nuestra Empresa</h2>
-        <p>
-  GRUPOARGENTIMAQ se ha consolidado como líder en la venta, reparación y servicio de maquinaria para la construcción.
-  Desde nuestros inicios, nos hemos comprometido con brindar soluciones integrales y de calidad a nuestros clientes,
-  garantizando el éxito de sus proyectos de construcción, infraestructura y obras civiles.
-        </p>
-        <p>
-  Nuestra Misión: Ser el socio estratégico de nuestros clientes en cada etapa de sus proyectos, proporcionando maquinaria de vanguardia,
-  atención personalizada y servicios técnicos especializados.
-  Nos enfocamos en ofrecer las mejores soluciones para optimizar los procesos constructivos, siempre con un enfoque en la seguridad,
-  la eficiencia y la sostenibilidad.
-        </p>
-        <p>
-  Más de 20 Años de Trayectoria: A lo largo de nuestra carrera, hemos acumulado una vasta experiencia en el mercado, lo que nos permite
-  comprender a fondo las necesidades de cada cliente. Nuestro compromiso con la innovación y la excelencia nos ha permitido mantener
-  una posición de liderazgo, convirtiéndonos en una referencia dentro del mercado de maquinaria para la construcción.
-        </p>
-        <p>
-  <strong>Lo que Ofrecemos:</strong><br />
-  <strong>Venta y Reparación de Maquinaria:</strong> Disponemos de una amplia gama de equipos de última tecnología, desde
-  allanadoras, aserradoras de hormigón, vibroapisonadores, generadores, hasta maquinaria especializada para proyectos específicos.<br />
-  <strong>Servicio Técnico Especializado:</strong> Contamos con un equipo de profesionales altamente capacitados que brindan mantenimiento preventivo
-  y correctivo, asegurando el óptimo funcionamiento de los equipos en todo momento.<br />
-  <strong>Soluciones a Medida:</strong> Sabemos que cada proyecto tiene sus particularidades, por lo que ofrecemos asesoramiento personalizado
-  y soluciones adaptadas a las necesidades de cada cliente, ayudándoles a maximizar la productividad y reducir los tiempos de ejecución.
-        </p>
-        <p>
-  <strong>¿Por qué elegirnos?</strong><br />
-  <strong>Liderazgo en el Mercado:</strong> Más de 20 años de experiencia nos respaldan como una empresa consolidada y confiable.<br />
-  <strong>Calidad y Seguridad:</strong> Trabajamos solo con marcas de maquinaria de la más alta calidad, garantizando seguridad y
-  rendimiento en todos nuestros productos y servicios.<br />
-  <strong>Compromiso con el Cliente:</strong> Nuestro enfoque es siempre brindar el mejor servicio, atendiendo de manera rápida, eficaz y personalizada.<br />
-  <strong>Innovación:</strong> Siempre a la vanguardia de la tecnología, ofrecemos equipos modernos y soluciones que optimizan el rendimiento y la eficiencia
-  de sus proyectos.
-        </p>
-      </div>
-    </div>
-  </div>
-  
-
-
-
-
-
-
- <div class="nuestra-empresa">
+ <div class="nuestra-empresa" id="nuestra-empresa" >
   <div class="content-container">
     <div class="image-container">
-      <img src="../../assets/icon/foto reparación.png" alt="Edificio Macromaq" />
+      <img src="../../assets/icon/empresa.jpg" alt="Edificio Macromaq" />
+    </div>
+    <div class="text-container">
+      <h2>Nuestra Empresa</h2>
+      <p>
+        GRUPOARGENTIMAQ se ha consolidado como líder en la venta, reparación y servicio de maquinaria para la construcción. Desde nuestros inicios, nos hemos comprometido con brindar soluciones integrales y de calidad a nuestros clientes, garantizando el éxito de sus proyectos de construcción, infraestructura y obras civiles.
+      </p>
+      <p>
+        Con más de <strong>20 Años de Trayectoria</strong>, hemos acumulado una vasta experiencia en el mercado, lo que nos permite comprender a fondo las necesidades de cada cliente. Nuestro compromiso con la innovación y la excelencia nos ha permitido mantener una posición de liderazgo, convirtiéndonos en una referencia dentro del mercado de maquinaria para la construcción.
+      </p>
+      <p>
+        Disponemos de una amplia gama de equipos de última tecnología, desde <strong>allanadoras, aserradoras de hormigón, vibroapisonadores, generadores</strong>, hasta maquinaria especializada para proyectos específicos.
+      </p>
+      <p>
+        Sabemos que cada proyecto tiene sus particularidades, por lo que ofrecemos <strong>asesoramiento personalizado</strong> y soluciones adaptadas a las necesidades de cada cliente, ayudándoles a maximizar la productividad y reducir los tiempos de ejecución.
+      </p>
+      <h3>¿Por qué elegirnos?</h3>
+      <ul>
+        <li><strong>Liderazgo en el Mercado:</strong> Más de 20 años de experiencia nos respaldan como una empresa consolidada y confiable.</li>
+        <li><strong>Calidad y Seguridad:</strong> Trabajamos solo con marcas de maquinaria de la más alta calidad, garantizando seguridad y rendimiento en todos nuestros productos y servicios.</li>
+        <li><strong>Compromiso con el Cliente:</strong> Nuestro enfoque es siempre brindar el mejor servicio, atendiendo de manera rápida, eficaz y personalizada.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
+
+
+
+ <div class="nuestra-empresa" id="servicio-reparacion">
+  <div class="content-container">
+    <div class="image-container">
+      <img src="../../assets/icon/reparacion.jpg" alt="Edificio Macromaq" />
     </div>
     <div class="text-container">
       <h2>Servicio Y Reparación</h2>
@@ -196,13 +180,13 @@ y cuidado de su maquinaria, ayudándole a prolongar su vida útil.
           <p>WhatsApp: <a href="https://wa.me/5491121637136">11 21637136</a></p>
         </div>
         <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.345360147038!2d-58.53069548476934!3d-34.54058176218767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb0c79954cc3d%3A0x23313378832a0e8!2sFrancisco%20Borges%204380%2C%20B1605%20Munro%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
-            width="100%" 
-            height="250" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.345360147038!2d-58.53069548476934!3d-34.54058176218767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb0c79954cc3d%3A0x23313378832a0e8!2sFrancisco%20Borges%204380%2C%20B1605%20Munro%2C%20Provincia%20de%20Buenos%20Aires%2C%20Argentina!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar"
+            width="100%"
+            height="250"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
@@ -212,7 +196,7 @@ y cuidado de su maquinaria, ayudándole a prolongar su vida útil.
         <img src="./assets/iconoAtenea.webp" alt="Icono de la empresa" style="width: 150px;">
       </div>
     </ion-footer>
-    
+
 
 
 
