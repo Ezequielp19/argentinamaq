@@ -226,7 +226,7 @@ ion-content {
   flex-direction: row;
     width: calc(200%); /* Duplica el ancho porque las tarjetas están duplicadas */
 
-  animation: scrollMarcas 20s linear infinite;
+  animation: scrollMarcas 10s linear infinite;
 }
 
 .marca-card {
