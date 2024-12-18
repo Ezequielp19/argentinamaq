@@ -207,7 +207,7 @@ navegarAmaq() {
 
   comprar() {
     const message = `Hola, estoy interesado en el producto ${this.producto?.nombre}`;
-    const whatsappUrl = `https://wa.me/5491167554362?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/1121637136?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, '_blank');
