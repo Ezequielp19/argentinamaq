@@ -243,17 +243,14 @@ ion-content {
 
 
 .marcas-scroll-container {
-  overflow: hidden; /* Oculta el desbordamiento */
-  width: 100%; /* Asegura que se ajuste al ancho del contenedor */
-
-  position: relative;
+  overflow: hidden; /* Oculta el contenido desbordante */
+  width: 100%;
 }
 
 .marcas-carousel-inner {
   display: flex;
   flex-direction: row;
-  width: max-content; /* Permite que el contenido extienda su ancho */
-  animation: scrollMarcas 20s linear infinite;
+  animation: bounceMarcas 3s ease-in-out infinite; /* Animación de rebote */
 }
 
 .marca-card {
@@ -261,14 +258,18 @@ ion-content {
   margin: 10px;
 }
 
-@keyframes scrollMarcas {
-  from {
-    transform: translateX(0);
+@keyframes bounceMarcas {
+  0% {
+    transform: translateX(0); /* Inicio: contenido en su posición original */
   }
-  to {
-    transform: translateX(-50%);
+  50% {
+    transform: translateX(calc(100% - 50vw)); /* Rebota hacia la derecha */
+  }
+  100% {
+    transform: translateX(0); /* Vuelve a la posición inicial */
   }
 }
+
 
 
 :host {
