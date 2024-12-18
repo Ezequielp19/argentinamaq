@@ -200,10 +200,10 @@ ion-content {
   text-align: center;
 }
 
-.marcas-scroll-container {
-  overflow: hidden;
-  position: relative;
-}
+// .marcas-scroll-container {
+//   overflow: hidden;
+//   position: relative;
+// }
 
 .marcas-wrapper {
   display: flex;
@@ -242,11 +242,18 @@ ion-content {
 // }
 
 
+.marcas-scroll-container {
+  overflow: hidden; /* Oculta el desbordamiento */
+  width: 100%; /* Asegura que se ajuste al ancho del contenedor */
+
+  position: relative;
+}
+
 .marcas-carousel-inner {
   display: flex;
   flex-direction: row;
+  width: max-content; /* Permite que el contenido extienda su ancho */
   animation: scrollMarcas 20s linear infinite;
-  overflow: hidden; /* Evita que los elementos se desborden */
 }
 
 .marca-card {
@@ -255,14 +262,13 @@ ion-content {
 }
 
 @keyframes scrollMarcas {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-100%);
+  to {
+    transform: translateX(-50%);
   }
 }
-
 
 
 :host {
