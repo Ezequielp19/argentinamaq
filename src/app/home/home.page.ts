@@ -195,7 +195,7 @@ navegarAmaq() {
   }
 
   openWhatsApp() {
-    const whatsappNumber = '5493417532800';
+    const whatsappNumber = '1121637136';
     const whatsappUrl = `https://wa.me/${whatsappNumber}`;
     window.open(whatsappUrl, '_blank');
   }

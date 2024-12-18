@@ -46,7 +46,7 @@
           <h2>{{ product.nombre }}</h2>
           <p>{{ product.descripcion }}</p>
 
-          <ion-button expand="full" color="primary" >Whatsapp</ion-button>
+          <ion-button expand="full" color="primary" (click)="openWhatsApp(product)" >Consultar</ion-button>
           <ion-button expand="full" color="primary" (click)="compareProduct(product)">Comparar</ion-button>
 
 

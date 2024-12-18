@@ -29,7 +29,7 @@
             <h2>{{ oferta.nombre }}</h2>
             <p>{{ oferta.descripcion }}</p>
 
-            <ion-button expand="full" color="primary" >Whatsapp</ion-button>
+<ion-button expand="full" color="primary" (click)="openWhatsApp(oferta)">Consultar</ion-button>
             <ion-button expand="full" color="primary" (click)="compareProduct(oferta)">Comparar</ion-button>
           </ion-card-content>
         </ion-card>

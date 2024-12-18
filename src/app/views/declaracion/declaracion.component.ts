@@ -73,7 +73,7 @@ export class DeclaracionComponent  implements OnInit {
     }
   }
 
-  
+
 
   compareProduct(oferta: Productoferta) {
     // Lógica para agregar a comparación
@@ -81,5 +81,18 @@ export class DeclaracionComponent  implements OnInit {
       this.productosSeleccionados.push(oferta);
     }
   }
+
+
+
+
+
+openWhatsApp(oferta: any) {
+  const message = `Hola, estoy interesado en la oferta "${oferta.nombre}". Su descripción es: "${oferta.descripcion}".`;
+  const encodedMessage = encodeURIComponent(message); // Codifica el mensaje para URL
+  const whatsappURL = `https://wa.me/1121637136?text=${encodedMessage}`; 
+  window.open(whatsappURL, '_blank');
+}
+
+
 
 }

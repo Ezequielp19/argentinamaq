@@ -221,4 +221,12 @@ productosPorCategoria: Producto[] = []; // Productos filtrados por categoría
     }
   }
 
+
+ openWhatsApp(product: any) {
+  const message = `Hola, estoy interesado en el producto "${product.nombre}". Su descripción es: "${product.descripcion}".`;
+  const encodedMessage = encodeURIComponent(message); // Asegura que el texto esté correctamente codificado para URL.
+  const whatsappURL = `https://wa.me/1121637136?text=${encodedMessage}`; 
+  window.open(whatsappURL, '_blank');
+}
+
 }
