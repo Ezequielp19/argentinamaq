@@ -221,10 +221,32 @@ ion-content {
   justify-content: center;
 }
 
+// .marcas-carousel-inner {
+//   display: flex;
+//   flex-direction: row;
+//   animation: scrollMarcas 20s linear infinite;
+// }
+
+// .marca-card {
+//   flex: 0 0 auto;
+//   margin: 10px;
+// }
+
+// @keyframes scrollMarcas {
+//   0% {
+//     transform: translateX(50%);
+//   }
+//   100% {
+//     transform: translateX(-50%);
+//   }
+// }
+
+
 .marcas-carousel-inner {
   display: flex;
   flex-direction: row;
   animation: scrollMarcas 20s linear infinite;
+  overflow: hidden; /* Evita que los elementos se desborden */
 }
 
 .marca-card {
@@ -234,10 +256,10 @@ ion-content {
 
 @keyframes scrollMarcas {
   0% {
-    transform: translateX(50%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
