@@ -224,7 +224,7 @@ ion-content {
 .marcas-carousel-inner {
   display: flex;
   flex-direction: row;
-    width: calc(200%); /* Duplica el ancho porque las tarjetas están duplicadas */
+    // width: calc(200%); 
 
   animation: scrollMarcas 10s linear infinite;
 }
