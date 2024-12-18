@@ -59,11 +59,18 @@
           <ion-row>
             <ion-col size="12" class="marcas-carousel">
               <div class="marcas-carousel-inner">
-                <ion-card class="marca-card" *ngFor="let marca of marcas" >
+                <!-- <ion-card class="marca-card" *ngFor="let marca of marcas" >
                   <img [src]="marca.imagen" alt="{{ marca.nombre }}" />
-                </ion-card>
+                </ion-card> -->
 
-
+ <!-- Primera iteración de tarjetas -->
+          <div class="marca-card" *ngFor="let marca of marcas">
+            <img [src]="marca.imagen" alt="{{ marca.nombre }}" />
+          </div>
+          <!-- Segunda iteración (duplicada) -->
+          <div class="marca-card" *ngFor="let marca of marcas">
+            <img [src]="marca.imagen" alt="{{ marca.nombre }}" />
+          </div>
 
 
               </div>

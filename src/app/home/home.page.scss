@@ -200,10 +200,10 @@ ion-content {
   text-align: center;
 }
 
-// .marcas-scroll-container {
-//   overflow: hidden;
-//   position: relative;
-// }
+.marcas-scroll-container {
+  overflow: hidden;
+  position: relative;
+}
 
 .marcas-wrapper {
   display: flex;
@@ -221,16 +221,18 @@ ion-content {
   justify-content: center;
 }
 
-// .marcas-carousel-inner {
-//   display: flex;
-//   flex-direction: row;
-//   animation: scrollMarcas 20s linear infinite;
-// }
+.marcas-carousel-inner {
+  display: flex;
+  flex-direction: row;
+    width: calc(200%); /* Duplica el ancho porque las tarjetas están duplicadas */
 
-// .marca-card {
-//   flex: 0 0 auto;
-//   margin: 10px;
-// }
+  animation: scrollMarcas 20s linear infinite;
+}
+
+.marca-card {
+  flex: 0 0 auto;
+  margin: 10px;
+}
 
 // @keyframes scrollMarcas {
 //   0% {
@@ -242,34 +244,14 @@ ion-content {
 // }
 
 
-.marcas-scroll-container {
-  overflow: hidden; /* Oculta el contenido desbordante */
-  width: 100%;
-}
-
-.marcas-carousel-inner {
-  display: flex;
-  flex-direction: row;
-  animation: bounceMarcas 10s ease-in-out infinite; /* Animación de rebote */
-}
-
-.marca-card {
-  flex: 0 0 auto;
-  margin: 10px;
-}
-
-@keyframes bounceMarcas {
-  0% {
-    transform: translateX(0); /* Inicio: contenido en su posición original */
+@keyframes scrollMarcas {
+  from {
+    transform: translateX(0);
   }
-  50% {
-    transform: translateX(calc(100% - 50vw)); /* Rebota hacia la derecha */
-  }
-  100% {
-    transform: translateX(0); /* Vuelve a la posición inicial */
+  to {
+    transform: translateX(-50%); /* Desplaza solo la mitad para que la animación sea continua */
   }
 }
-
 
 
 :host {
